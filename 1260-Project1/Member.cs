@@ -9,7 +9,7 @@ namespace _1260_Project1
         private string name;
         private string memberId;
         public string MemberId { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } 
 
 
         public Member(string memberId, string name)

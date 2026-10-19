@@ -9,6 +9,9 @@ namespace _1260_Project1
             Path.Combine(AppContext.BaseDirectory, "data.txt");
 
             var Library = new Library();
+
+            Library.FinalReport();
+
             //adding LibraryItems
             LibraryItem item1 = new Book("11", "The Great Gatsby", "F. Scott Fitzgerald", 1925, 218);
             Library.AddItem(item1);
@@ -27,22 +30,14 @@ namespace _1260_Project1
             Library.AddMember(member1);
             Member member2 = new Member("2", "Jane Smith");
             Library.AddMember(member2);
+
             //Check out and return tests
             Library.CheckOutItem("11", member1);
             Library.ReturnItem("11");
             Library.CheckOutItem("21", member2);
+            
 
-            // Display the current state of the library
-            Console.WriteLine("Loans:");
-            Library.DisplayLoans();
-            Console.WriteLine("Items:");
-            Library.DisplayItems();
-            Console.WriteLine("Members:");
-            Library.DisplayMembers();
-
-            //Library.Find() test
-            //var foundItem = Library.Find("1");
-            //Console.WriteLine("Found Item: '{0}'", foundItem.DisplayInfo());
+           
 
             // Group 3: 2nd Requirement, a loop of base type LibraryItem calling 
             //the abstract type method
@@ -87,25 +82,28 @@ namespace _1260_Project1
             //Group 4: 2nd Requirement, sorting by natural order
             itemList.Sort();
             Console.WriteLine("Items sorted by natural order:");
+            int num1 = 1;
             foreach (var item in itemList)
             {
-                Console.WriteLine($" {loopNumber++} {item.DisplayInfo()}");
+                Console.WriteLine($" {num1++} {item.DisplayInfo()}");
             }
             Console.WriteLine();
             // sorting by custom order using IComparer
             Console.WriteLine("Items sorted by Title:");
             itemList.Sort(new ValueSort());
+            int num2 = 1;
             foreach (var item in itemList)
             {
-                Console.WriteLine($" {loopNumber++} {item.DisplayInfo()}");
+                Console.WriteLine($" {num2++} {item.DisplayInfo()}");
             }
             Console.WriteLine();
             // items sorted by Name using GroupByKey
             Console.WriteLine("Items sorted by Name:");
             itemList.Sort(new GroupByKey());
+            int num3 = 1;
             foreach (var item in itemList)
             {
-                Console.WriteLine($" {loopNumber++} {item.DisplayInfo()}");
+                Console.WriteLine($" {num3++} {item.DisplayInfo()}");
             }
 
             //Group 5 loading from seed_data.txt

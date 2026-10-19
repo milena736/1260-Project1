@@ -43,26 +43,6 @@ namespace _1260_Project1
         {
             Members.Add(member);
         }
-        public void DisplayItems()
-        {
-            foreach (var item in Items)
-            {
-                Console.WriteLine(item.DisplayInfo());
-            }
-        }
-
-
-        public void DisplayMembers()
-        {
-            foreach (var member in Members)
-            {
-                Console.WriteLine(member.DisplayInfo());
-            }
-        }
-        
-        
-       
-        
         
         public void CheckOutItem(string ItemId, Member MemberId)
         {
@@ -87,13 +67,7 @@ namespace _1260_Project1
                 }
             }
         }
-        public void DisplayLoans()
-        {
-            foreach (var loan in Loans)
-            {
-                Console.WriteLine(loan.DisplayInfo());
-            }
-        }
+        
         public int SignedCount()
         {
             int count = Items.Count(item => item is IDisplay);
@@ -106,23 +80,21 @@ namespace _1260_Project1
         {
             Console.WriteLine("=== 1. Classes, UML, and Relationships ===" );
             Console.WriteLine("Classes:");
-            Console.WriteLine(" - Library, LibraryItem, StudyRoom, Media, Book, Magazine, Member, Loan");
-            Console.WriteLine();
+            Console.WriteLine("LibraryItem, StudyRoom, Media, Book, Magazine, Member, Loan");
+            Console.WriteLine("Interfaces:         ILoanable, IDisplay");
+            Console.WriteLine("Classes for sorting:ValueSort, GroupByKey");
             Console.WriteLine("Relationships:");
-            Console.WriteLine(" - Library manages LibraryItems, Members and Loans");
-            Console.WriteLine(" - LibraryItem can be borrowed by Members through Loans");
-            Console.WriteLine(" - Members can borrow multiple LibraryItems through Loans");
+            Console.WriteLine("StudyRoom and Media inherit from Library item.");
+            Console.WriteLine("Book and magazine inherit from Media");
+            Console.WriteLine("Loans links members to a Library item");
+            Console.WriteLine("A member can check out manny items");
+            Console.WriteLine("Library manages members and Library items.");
             Console.WriteLine();
-            Console.WriteLine("=== 2. Inheritance and Abstraction ===");
-            Console.WriteLine("Inheritance:");
-            Console.WriteLine(" - Book and Magazine inherit from Media");
-            Console.WriteLine(" - StudyRoom inherits from LibraryItem");
-            Console.WriteLine(" - Media inherits from LibraryItem");
-            Console.WriteLine(" - LibraryItem implements ILoanable");
-            Console.WriteLine();
-            Console.WriteLine("Abstraction:");
-            Console.WriteLine(" - LibraryItem abstracts common properties and methods for all library items");
-            Console.WriteLine(" - ILoanable abstracts the loanable behavior");
+            Console.WriteLine("=== 2. Ingeritance and Abstraction ===");
+            Console.WriteLine("1.Abstract base class is LibraryItem");
+            Console.WriteLine("2.Middle abstract class is Media.");
+
+           
         }
     }
 }
