@@ -7,6 +7,7 @@ namespace _1260_Project1
     public abstract class Media : LibraryItem
     {
         private string author;
+        private int year;
         public string Author { get; set; }
         public int Year { get; set; }
         

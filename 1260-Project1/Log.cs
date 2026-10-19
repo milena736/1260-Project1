@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _1260_Project1
+/*namespace _1260_Project1
 {
     public class Log : IDisposable
     {
@@ -52,3 +52,4 @@ namespace _1260_Project1
         }
     }
 }
+*/

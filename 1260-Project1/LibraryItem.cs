@@ -5,7 +5,7 @@ using System.Text;
 
 namespace _1260_Project1
 {
-    public abstract class LibraryItem : ILoanable, IDisplay, IComparable<LibraryItem>, IEquatable<LibraryItem>
+    public abstract class LibraryItem : ILoanable, IComparable<LibraryItem>, IEquatable<LibraryItem>
     {
 
         
@@ -57,21 +57,10 @@ namespace _1260_Project1
             if (other == null) return false;
             return string.Equals(this.ItemId, other.ItemId, StringComparison.OrdinalIgnoreCase);
         }
-        public override bool Equals(object obj)
-        {
-            if (obj is LibraryItem otherItem)
-            {
-                return Equals(otherItem);
-            }
-            return false;
-        }
+        
         public override int GetHashCode()
         {
             return ItemId != null ? StringComparer.OrdinalIgnoreCase.GetHashCode(ItemId) : 0;
-
-
-
-
 
 
         }
