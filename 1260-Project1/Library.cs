@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _1260_Project1
 {
-    public class Library
+    public class Library : IDisplay
     {
         private List<LibraryItem> items = new List<LibraryItem>();
         private List<Member> members = new List<Member>();
@@ -20,10 +20,11 @@ namespace _1260_Project1
             members.Add(member);
         }
         public void DisplayItems()
+        
         {
             foreach (var item in items)
             {
-                item.DisplayInfo();
+                item.Display();
             }
         }
         public void DisplayMembers()
@@ -80,23 +81,19 @@ namespace _1260_Project1
         {
             Console.WriteLine("=== 1. Classes, UML, and Relationships ===" );
             Console.WriteLine("Classes:");
-            Console.WriteLine(" - Library, LibraryItem, Book, Magazine, Member, Loan, StudyRoom");
-            Console.WriteLine();
-            Console.WriteLine("UML Diagram:");
-            Console.WriteLine(" - Library has a collection of LibraryItems and Members");
-            Console.WriteLine(" - LibraryItem has a collection of Loans");
-            Console.WriteLine(" - Member has a collection of Loans");
-            Console.WriteLine(" - Loan links a Member and a LibraryItem");
+            Console.WriteLine(" - Library, LibraryItem, StudyRoom, Media, Book, Magazine, Member, Loan");
             Console.WriteLine();
             Console.WriteLine("Relationships:");
             Console.WriteLine(" - Library contains LibraryItems and Members");
             Console.WriteLine(" - LibraryItem can be borrowed by Members through Loans");
-            Console.WriteLine(" - Member can borrow multiple LibraryItems through Loans");
+            Console.WriteLine(" - Members can borrow multiple LibraryItems through Loans");
             Console.WriteLine();
             Console.WriteLine("=== 2. Inheritance and Abstraction ===");
             Console.WriteLine("Inheritance:");
-            Console.WriteLine(" - Book and Magazine inherit from LibraryItem");
-            Console.WriteLine(" - StudyRoom implements ILoanable");
+            Console.WriteLine(" - Book and Magazine inherit from Media");
+            Console.WriteLine(" - StudyRoom inherits from LibraryItem");
+            Console.WriteLine(" - Media inherits from LibraryItem");
+            Console.WriteLine(" - LibraryItem implements ILoanable");
             Console.WriteLine();
             Console.WriteLine("Abstraction:");
             Console.WriteLine(" - LibraryItem abstracts common properties and methods for all library items");

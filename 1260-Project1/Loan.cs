@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _1260_Project1
 {
-    public class Loan
+    public class Loan : IDisplay
     {
         public Member Name { get; set; }
         public LibraryItem ItemId { get; set; }
@@ -24,10 +24,10 @@ namespace _1260_Project1
         {
             this.ReturnDate = DateTime.Now;
         }
-        public void DisplayInfo()
+        string IDisplay.DisplayInfo()
         {
-            Console.WriteLine();
-            Console.WriteLine($"Member: {Name.Name}, Item: {ItemId}, Checked Out: {OutDate}, DueDate: {DueDate}" +
+           
+            return String.Format($"Member: {Name.Name}, Item: {ItemId}, Checked Out: {OutDate}, DueDate: {DueDate}" +
                 $", Returned:{(ReturnDate.HasValue ? ReturnDate.Value.ToString() : "Not Returned")}");
             
         }

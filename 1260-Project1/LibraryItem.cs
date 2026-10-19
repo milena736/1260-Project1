@@ -21,7 +21,6 @@ namespace _1260_Project1
         }
 
 
-
         public virtual void CheckOut()
         {
             if (!IsAvailable)

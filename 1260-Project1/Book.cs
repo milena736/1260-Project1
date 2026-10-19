@@ -5,32 +5,26 @@ using System.Text;
 
 namespace _1260_Project1
 {
-    public class Book : Media
+    public class Book : Media, IDisplay
     {
         private int Pages;
         public int pages { get; private set; }
 
-        public Book (int ItemId, string title, string author, int year,string Type, int pages) : base(ItemId, title, author, year, Type)
+        public Book (int ItemId, string title, string author, int year, int pages) : base(ItemId, title, author, year)
         {
-            this.Type = "Book";
+            
             this.Pages = pages;
         }
 
-        public override void DisplayInfo()
+        string IDisplay.DisplayInfo()
         {
-            Console.WriteLine($"Type: {Type} Title: {title}, Author: {author}, Year: {year}, Pages: {Pages}");
+            return string.Format($"Type: {Type()} Title: {title}, Author: {author}, Year: {year}, Pages: {Pages}");
         }
-        public override void DisplayAvailability()
+        public override string Type()
         {
-            if (IsAvailable)
-            {
-                Console.WriteLine($"'{title}' is available.");
-            }
-            else
-            {
-                Console.WriteLine($"'{title}' is not available.");
-            }
+            return "Book";
         }
+        
 
     }
 }

@@ -6,34 +6,27 @@ using System.Text;
 
 namespace _1260_Project1
 {
-    internal class Magazine : Media
+    internal class Magazine : Media, IDisplay
     {
         private int issueNumber;
         public int IssueNumber { get; set; }
     
 
-    public Magazine(int ItemId, string title, string author, int year, string Type, int IssueNumber)
-            : base(ItemId, title, author, year, Type)
+    public Magazine(int ItemId, string title, string author, int year, int IssueNumber)
+            : base(ItemId, title, author, year)
         {
-            this.Type = "Magazine";
+            
             this.IssueNumber = IssueNumber;
         }
 
-        public override void DisplayInfo()
+        string IDisplay.DisplayInfo()
         {
-            Console.WriteLine($"Type: {Type} Title: {title}, Author: {author}, Year: {year}, IssueNumber: {IssueNumber}");
+            return string.Format($"Type: {Type()} Title: {title}, Author: {author}, Year: {year}, IssueNumber: {IssueNumber}");
         }
 
-        public override void DisplayAvailability()
+        public override string Type()
         {
-            if (IsAvailable)
-            {
-                Console.WriteLine($"'{title}' is available.");
-            }
-            else
-            {
-                Console.WriteLine($"'{title}' is not available.");
-            }
+            return "Magazine";
         }
     }
 }
