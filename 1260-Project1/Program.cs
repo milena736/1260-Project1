@@ -21,15 +21,18 @@ namespace _1260_Project1
             Member member2 = new Member(2, "Jane Smith");
             Library.AddMember(member2);
 
-            Library.DisplayAll();
-            
-            item1.CheckOut(1);
-            item1.Return(1);
-            Library.CheckOutItem(2, 2);
-            Library.CheckOutItem(2, 2);
-            
-            
-            
+            Library.CheckOutItem(1, member1); 
+            Library.ReturnItem(1);
+            Library.CheckOutItem(2, member2);
+            Console.WriteLine("Loans:");
+            Library.DisplayLoans();
+            Console.WriteLine("Items:");
+            Library.DisplayItems();
+            Console.WriteLine("Members:");
+            Library.DisplayMembers();
+
+
+
 
         }
 

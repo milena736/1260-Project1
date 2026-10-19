@@ -8,6 +8,7 @@ namespace _1260_Project1
     {
         private List<LibraryItem> items = new List<LibraryItem>();
         private List<Member> members = new List<Member>();
+        public List<Loan> loans = new List<Loan>();
 
         public void AddItem(LibraryItem item)
         {
@@ -32,20 +33,8 @@ namespace _1260_Project1
                 Console.WriteLine($"MemberID: {member.MemberId}, Name: {member.Name}");
             }
         }
-        public void DisplayLoans(List<Loan> loans)
-        {
-            foreach (var loan in loans)
-            {
-                loan.DisplayInfo();
-            }
-        }
-        public void DisplayAll()
-        {
-            Console.WriteLine("Library Items:");
-            DisplayItems();
-            Console.WriteLine("\nLibrary Members:");
-            DisplayMembers();
-        }
+        
+        
         public LibraryItem Find(int itemId)
         {
             return items.Find(item => item.ItemId == itemId);
@@ -54,32 +43,37 @@ namespace _1260_Project1
                 Console.WriteLine($"Item with ID {itemId} not found.");
             }
         } 
-        public Member FindMember(int memberId)
-        {
-            return members.Find(member => member.MemberId == memberId);
-            if (members == null)
-            {
-                Console.WriteLine($"Member with ID {memberId} not found.");
-            }
-        }
-        public void CheckOutItem(int itemId, int memberId)
+        
+        
+        public void CheckOutItem(int itemId, Member member)
         {
             var item = Find(itemId);
-            var member = FindMember(memberId);
             if (item != null && member != null)
             {
-                item.CheckOut(item.ItemId);
+                item.CheckOut();
+                loans.Add(new Loan(member, item));
                 Console.WriteLine($"Item '{item.title}' checked out by Member '{member.Name}'.");
             }
         }
-        public void ReturnItem(int itemId, int memberId)
+        public void ReturnItem(int itemId)
         {
             var item = Find(itemId);
-            var member = FindMember(memberId);
-            if (item != null && member != null)
+            if (item != null && item.IsAvailable == false)
             {
-                item.Return(item.ItemId);
-                Console.WriteLine($"Item '{item.title}' returned by Member '{member.Name}'.");
+                item.Return();
+                var loan = loans.Find(l => l.Item.ItemId == itemId && l.ReturnDate == null);
+                if (loan != null)
+                {
+                    loan.ReturnItem();
+                    Console.WriteLine($"Item '{item.title}' returned.");
+                }
+            }
+        }
+        public void DisplayLoans()
+        {
+            foreach (var loan in loans)
+            {
+                loan.DisplayInfo();
             }
         }
     }

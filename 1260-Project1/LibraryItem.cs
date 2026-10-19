@@ -15,12 +15,9 @@ namespace _1260_Project1
         public string author { get; set; }
         public int year { get; set; }
         public string Type { get; set; }
-        public List<Loan> record { get; }
-        public static int newseq { get; set; }
-        //add return date
 
         public bool IsAvailable { get; set; }
-        public LibraryItem( int ItemId, string title, string author, int year, string Type)
+        public LibraryItem( int itemId, string title, string author, int year, string Type)
         {
             this.ItemId = itemId;
             this.title = title;
@@ -28,16 +25,12 @@ namespace _1260_Project1
             this.year = year;
             this.Type = Type;
             IsAvailable = true;
-            record = new List<Loan>();
-            newseq = newseq + 1;
+            
         }
         public abstract void DisplayInfo();
-        public int LoanCount()
-        {
-            return record.Count;
-        }
+       
 
-        public void CheckOut(int ItemId)
+        public void CheckOut()
         {
             if (!IsAvailable)
             {
@@ -45,11 +38,11 @@ namespace _1260_Project1
                 return;
             }
             IsAvailable = false;
-            record.Add(new Loan(newseq ++, "Check out", +1));
+            
         }
 
 
-        public void Return(int ItemId)
+        public void Return()
         {
             if (IsAvailable)
             { 
@@ -58,7 +51,8 @@ namespace _1260_Project1
             }
             IsAvailable = true;
             Console.WriteLine($"Item '{title}' ({Type}), has been returned.");
-            record.Add(new Loan(newseq++, "Return", +1));
+           
+
         }
 
 
