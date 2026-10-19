@@ -16,15 +16,7 @@ namespace _1260_Project1
             this.RoomNumber = roomNumber;
             this.IsAvailable = isAvailable;
         }
-        public override void DisplayInfo()
-        {
-            Console.WriteLine($"Study Room Number: {RoomNumber}, Item ID: {ItemId}");
-        }
-
-        public override void DisplayAvailability()
-        {
-            Console.WriteLine($"Study Room {RoomNumber} is {(IsAvailable ? "available" : "not available")} for checkout.");
-        }
+        
 
        
         

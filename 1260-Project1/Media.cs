@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _1260_Project1
 {
-    public class Media : LibraryItem
+    public abstract class Media : LibraryItem
     {
         public string title { get; set; }
         public string author { get; set; }
@@ -20,13 +20,7 @@ namespace _1260_Project1
 
         }
 
-        public override void DisplayAvailability()
-        {
-            throw new NotImplementedException();
-        }
-        public override void DisplayInfo()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void DisplayInfo();
+        public abstract void DisplayAvailability();
     }
 }

@@ -20,8 +20,7 @@ namespace _1260_Project1
             
         }
 
-        public abstract void DisplayInfo();
-        public abstract void DisplayAvailability();
+
 
         public virtual void CheckOut()
         {
