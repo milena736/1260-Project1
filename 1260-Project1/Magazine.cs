@@ -23,5 +23,17 @@ namespace _1260_Project1
         {
             Console.WriteLine($"Type: {Type} Title: {title}, Author: {author}, Year: {year}, IssueNumber: {IssueNumber}");
         }
+
+        public override void DisplayAvailability()
+        {
+            if (IsAvailable)
+            {
+                Console.WriteLine($"'{title}' is available.");
+            }
+            else
+            {
+                Console.WriteLine($"'{title}' is not available.");
+            }
+        }
     }
 }

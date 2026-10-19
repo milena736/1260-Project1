@@ -30,9 +30,7 @@ namespace _1260_Project1
             Library.DisplayItems();
             Console.WriteLine("Members:");
             Library.DisplayMembers();
-
-
-
+           
 
         }
 

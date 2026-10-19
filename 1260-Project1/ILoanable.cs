@@ -4,7 +4,12 @@ using System.Text;
 
 namespace _1260_Project1
 {
-    internal interface ILoanable
+    public interface ILoanable
     {
+        bool IsAvailable { get; }
+
+        void CheckOut();
+
+        void Return();
     }
 }

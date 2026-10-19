@@ -45,14 +45,13 @@ namespace _1260_Project1
         } 
         
         
-        public void CheckOutItem(int itemId, Member member)
+        public void CheckOutItem(int itemId, Member memberId)
         {
             var item = Find(itemId);
-            if (item != null && member != null)
+            if (item != null && memberId != null)
             {
                 item.CheckOut();
-                loans.Add(new Loan(member, item));
-                Console.WriteLine($"Item '{item.title}' checked out by Member '{member.Name}'.");
+                loans.Add(new Loan(memberId, item));
             }
         }
         public void ReturnItem(int itemId)
@@ -65,7 +64,7 @@ namespace _1260_Project1
                 if (loan != null)
                 {
                     loan.ReturnItem();
-                    Console.WriteLine($"Item '{item.title}' returned.");
+                   
                 }
             }
         }

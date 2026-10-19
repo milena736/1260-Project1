@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _1260_Project1
 {
-    public abstract class LibraryItem
+    public abstract class LibraryItem 
     {
         // private static int _nextId = 1;
         //fix public/private and UC/LC
@@ -27,38 +27,36 @@ namespace _1260_Project1
             IsAvailable = true;
             
         }
-        public abstract void DisplayInfo();
-       
 
-        public void CheckOut()
+        public abstract void DisplayInfo();
+        public abstract void DisplayAvailability();
+
+        public virtual void CheckOut()
         {
             if (!IsAvailable)
             {
-                Console.WriteLine("Item has already been checked out.");
-                return;
+                throw new InvalidOperationException($"'{title}' is not available for checkout.");
             }
             IsAvailable = false;
             
         }
 
 
-        public void Return()
+        public virtual void Return()
         {
             if (IsAvailable)
-            { 
-                Console.WriteLine("Book is available.");
-                return;
+            {
+                throw new InvalidOperationException($"'{title}' is already available and cannot be returned.");
             }
-            IsAvailable = true;
-            Console.WriteLine($"Item '{title}' ({Type}), has been returned.");
-           
+            IsAvailable = true; 
 
         }
-
-
         
 
-        
+
+
+
+
     }
 
 }
