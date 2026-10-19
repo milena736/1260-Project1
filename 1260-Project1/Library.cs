@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _1260_Project1
 {
-    public class Library : IDisplay
+    public class Library 
     {
         private List<LibraryItem> items = new List<LibraryItem>();
         private List<Member> members = new List<Member>();
@@ -24,7 +24,7 @@ namespace _1260_Project1
         {
             foreach (var item in items)
             {
-                item.Display();
+                item.DisplayInfo();
             }
         }
         public void DisplayMembers()

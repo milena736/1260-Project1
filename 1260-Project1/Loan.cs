@@ -24,7 +24,7 @@ namespace _1260_Project1
         {
             this.ReturnDate = DateTime.Now;
         }
-        string IDisplay.DisplayInfo()
+        public string DisplayInfo()
         {
            
             return String.Format($"Member: {Name.Name}, Item: {ItemId}, Checked Out: {OutDate}, DueDate: {DueDate}" +

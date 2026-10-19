@@ -6,7 +6,7 @@ using System.Text;
 
 namespace _1260_Project1
 {
-    internal class Magazine : Media, IDisplay
+    internal class Magazine : Media
     {
         private int issueNumber;
         public int IssueNumber { get; set; }
@@ -19,7 +19,7 @@ namespace _1260_Project1
             this.IssueNumber = IssueNumber;
         }
 
-        string IDisplay.DisplayInfo()
+        public override string DisplayInfo()
         {
             return string.Format($"Type: {Type()} Title: {title}, Author: {author}, Year: {year}, IssueNumber: {IssueNumber}");
         }

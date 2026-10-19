@@ -20,7 +20,10 @@ namespace _1260_Project1
 
         }
 
-        public abstract string Type();
+        public override string Type()
+        {
+            return "Media";
+        }
         
     }
 }

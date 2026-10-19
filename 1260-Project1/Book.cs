@@ -5,7 +5,7 @@ using System.Text;
 
 namespace _1260_Project1
 {
-    public class Book : Media, IDisplay
+    public class Book : Media
     {
         private int Pages;
         public int pages { get; private set; }
@@ -16,7 +16,7 @@ namespace _1260_Project1
             this.Pages = pages;
         }
 
-        string IDisplay.DisplayInfo()
+        public override string DisplayInfo()
         {
             return string.Format($"Type: {Type()} Title: {title}, Author: {author}, Year: {year}, Pages: {Pages}");
         }

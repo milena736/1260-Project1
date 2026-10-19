@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace _1260_Project1
@@ -11,6 +12,7 @@ namespace _1260_Project1
 
         private int itemId;
         public int ItemId { get; set; }
+
 
         public bool IsAvailable { get; set; }
         public LibraryItem( int itemId)
@@ -41,7 +43,9 @@ namespace _1260_Project1
             IsAvailable = true; 
 
         }
-        
+        public abstract string DisplayInfo();
+      public abstract string Type();
+
 
 
 

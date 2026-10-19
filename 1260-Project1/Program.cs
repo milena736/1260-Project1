@@ -8,11 +8,11 @@ namespace _1260_Project1
         {
             var Library = new Library();
 
-            LibraryItem item1 = new Book(1, "The Great Gatsby", "F. Scott Fitzgerald", 1925, "Book", 218);
+            LibraryItem item1 = new Book(1, "The Great Gatsby", "F. Scott Fitzgerald", 1925, 218);
             Library.AddItem(item1);
-            LibraryItem item2 = new Magazine(2, "National Geographic", "National Geographic Society", 2023, "Magazine", 8);
+            LibraryItem item2 = new Magazine(2, "National Geographic", "National Geographic Society", 2023, 8);
             Library.AddItem(item2);
-            LibraryItem item3 = new Book(3, "To Kill a Mockingbird", "Harper Lee", 1960, "Book", 281);
+            LibraryItem item3 = new Book(3, "To Kill a Mockingbird", "Harper Lee", 1960, 281);
             Library.AddItem(item3);
 
 
@@ -30,6 +30,8 @@ namespace _1260_Project1
             Library.DisplayItems();
             Console.WriteLine("Members:");
             Library.DisplayMembers();
+           var foundItem = Library.Find(1);
+           Console.WriteLine("Found Item: '{0}'", foundItem);
            
 
         }
