@@ -11,19 +11,11 @@ namespace _1260_Project1
 
         private int itemId;
         public int ItemId { get; set; }
-        public string title { get; set; }
-        public string author { get; set; }
-        public int year { get; set; }
-        public string Type { get; set; }
 
         public bool IsAvailable { get; set; }
-        public LibraryItem( int itemId, string title, string author, int year, string Type)
+        public LibraryItem( int itemId)
         {
             this.ItemId = itemId;
-            this.title = title;
-            this.author = author;
-            this.year = year;
-            this.Type = Type;
             IsAvailable = true;
             
         }
@@ -35,7 +27,7 @@ namespace _1260_Project1
         {
             if (!IsAvailable)
             {
-                throw new InvalidOperationException($"'{title}' is not available for checkout.");
+                throw new InvalidOperationException($"'{itemId}' is not available for checkout.");
             }
             IsAvailable = false;
             
@@ -46,7 +38,7 @@ namespace _1260_Project1
         {
             if (IsAvailable)
             {
-                throw new InvalidOperationException($"'{title}' is already available and cannot be returned.");
+                throw new InvalidOperationException($"'{itemId}' is already available and cannot be returned.");
             }
             IsAvailable = true; 
 

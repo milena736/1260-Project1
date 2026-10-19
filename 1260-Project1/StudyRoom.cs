@@ -4,36 +4,30 @@ using System.Text;
 
 namespace _1260_Project1
 {
-    internal class StudyRoom : ILoanable
+    public class StudyRoom : LibraryItem, ILoanable
     {
         private int roomNumber;
         private bool isAvailable;
         public int RoomNumber { get; set; }
         public bool IsAvailable { get; set; }
 
-        public StudyRoom(int roomNumber, bool isAvailable)
+        public StudyRoom(int roomNumber, int itemId, bool isAvailable) : base(itemId)
         {
             this.RoomNumber = roomNumber;
             this.IsAvailable = isAvailable;
         }
-
-        public void CheckOut()
+        public override void DisplayInfo()
         {
-            if (!IsAvailable)
-            {
-                throw new InvalidOperationException($"Study Room {RoomNumber} is not available for checkout.");
-            }
-            IsAvailable = false;
+            Console.WriteLine($"Study Room Number: {RoomNumber}, Item ID: {ItemId}");
+        }
 
-        }
-        public void Return()
+        public override void DisplayAvailability()
         {
-            if (IsAvailable)
-            {
-                throw new InvalidOperationException($"Study Room {RoomNumber} is already available and cannot be returned.");
-            }
-            IsAvailable = true;
+            Console.WriteLine($"Study Room {RoomNumber} is {(IsAvailable ? "available" : "not available")} for checkout.");
         }
+
+       
+        
 
     }
 }

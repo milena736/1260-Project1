@@ -6,7 +6,7 @@ using System.Text;
 
 namespace _1260_Project1
 {
-    internal class Magazine : LibraryItem
+    internal class Magazine : Media
     {
         private int issueNumber;
         public int IssueNumber { get; set; }

@@ -7,15 +7,15 @@ namespace _1260_Project1
     public class Loan
     {
         public Member Name { get; set; }
-        public LibraryItem Item { get; set; }
+        public LibraryItem ItemId { get; set; }
         public DateTime OutDate { get; set; }
         public DateTime DueDate { get; set; }
         public DateTime? ReturnDate { get; set; }
 
-        public Loan(Member name, LibraryItem item)
+        public Loan(Member name, LibraryItem itemId)
         {
             this.Name = name;
-            this.Item = item;
+            this.ItemId = itemId;
             this.OutDate = DateTime.Now;
             this.DueDate = this.OutDate.AddDays(14);
             this.ReturnDate = null;
@@ -27,7 +27,7 @@ namespace _1260_Project1
         public void DisplayInfo()
         {
             Console.WriteLine();
-            Console.WriteLine($"Member: {Name.Name}, Item: {Item.title}, Checked Out: {OutDate}, DueDate: {DueDate}" +
+            Console.WriteLine($"Member: {Name.Name}, Item: {ItemId}, Checked Out: {OutDate}, DueDate: {DueDate}" +
                 $", Returned:{(ReturnDate.HasValue ? ReturnDate.Value.ToString() : "Not Returned")}");
             
         }

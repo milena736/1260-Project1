@@ -60,7 +60,7 @@ namespace _1260_Project1
             if (item != null && item.IsAvailable == false)
             {
                 item.Return();
-                var loan = loans.Find(l => l.Item.ItemId == itemId && l.ReturnDate == null);
+                var loan = loans.Find(l => l.ItemId.ItemId == itemId && l.ReturnDate == null);
                 if (loan != null)
                 {
                     loan.ReturnItem();
@@ -74,6 +74,33 @@ namespace _1260_Project1
             {
                 loan.DisplayInfo();
             }
+        }
+
+        public void FinalReport()
+        {
+            Console.WriteLine("=== 1. Classes, UML, and Relationships ===" );
+            Console.WriteLine("Classes:");
+            Console.WriteLine(" - Library, LibraryItem, Book, Magazine, Member, Loan, StudyRoom");
+            Console.WriteLine();
+            Console.WriteLine("UML Diagram:");
+            Console.WriteLine(" - Library has a collection of LibraryItems and Members");
+            Console.WriteLine(" - LibraryItem has a collection of Loans");
+            Console.WriteLine(" - Member has a collection of Loans");
+            Console.WriteLine(" - Loan links a Member and a LibraryItem");
+            Console.WriteLine();
+            Console.WriteLine("Relationships:");
+            Console.WriteLine(" - Library contains LibraryItems and Members");
+            Console.WriteLine(" - LibraryItem can be borrowed by Members through Loans");
+            Console.WriteLine(" - Member can borrow multiple LibraryItems through Loans");
+            Console.WriteLine();
+            Console.WriteLine("=== 2. Inheritance and Abstraction ===");
+            Console.WriteLine("Inheritance:");
+            Console.WriteLine(" - Book and Magazine inherit from LibraryItem");
+            Console.WriteLine(" - StudyRoom implements ILoanable");
+            Console.WriteLine();
+            Console.WriteLine("Abstraction:");
+            Console.WriteLine(" - LibraryItem abstracts common properties and methods for all library items");
+            Console.WriteLine(" - ILoanable abstracts the loanable behavior");
         }
     }
 }
