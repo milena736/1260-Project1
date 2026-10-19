@@ -12,8 +12,8 @@ namespace _1260_Project1
         public int IssueNumber { get; set; }
     
 
-    public Magazine(int ItemId, string title, string author, int year, int IssueNumber)
-            : base(ItemId, title, author, year)
+    public Magazine(string itemId, string title, string author, int year, int IssueNumber)
+            : base(itemId, title, author, year)
         {
             
             this.IssueNumber = IssueNumber;

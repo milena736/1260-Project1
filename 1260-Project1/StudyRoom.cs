@@ -11,7 +11,7 @@ namespace _1260_Project1
         public int RoomNumber { get; set; }
         
 
-        public StudyRoom(int roomNumber, int itemId, bool isAvailable) : base(itemId)
+        public StudyRoom(int roomNumber, string itemId, bool isAvailable) : base(itemId)
         {
             this.RoomNumber = roomNumber;
             this.IsAvailable = isAvailable;

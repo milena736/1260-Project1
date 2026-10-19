@@ -6,13 +6,37 @@ namespace _1260_Project1
 {
     public class Library 
     {
-        private List<LibraryItem> items = new List<LibraryItem>();
-        private List<Member> members = new List<Member>();
-        public List<Loan> loans = new List<Loan>();
+        public List<LibraryItem> items;
+        public List<Member> members;
+        public List<Loan> loans;
 
-        public void AddItem(LibraryItem item)
+        public Library()
         {
+            this.items = new List<LibraryItem>();
+            this.members = new List<Member>();
+            this.loans = new List<Loan>();
+        }
+        public LibraryItem Find(string itemId)
+        {
+            return items.Find(item => item.itemId == itemId);
+            if (itemId == null)
+            {
+                throw new InvalidOperationException($"Item with ID {itemId} not found.");
+            }
+        }
+
+        public bool AddItem(LibraryItem item)
+        {
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item), "Item cannot be null.");
+            }
+            if (items.Find(i => i.itemId == item.itemId) != null)
+            {
+                return false;
+            }
             items.Add(item);
+            return true;
         }
 
         public void AddMember(Member member)
@@ -20,33 +44,27 @@ namespace _1260_Project1
             members.Add(member);
         }
         public void DisplayItems()
-        
         {
             foreach (var item in items)
             {
-                item.DisplayInfo();
+                Console.WriteLine(item.DisplayInfo());
             }
         }
+
+
         public void DisplayMembers()
         {
             foreach (var member in members)
             {
-                Console.WriteLine($"MemberID: {member.MemberId}, Name: {member.Name}");
+                Console.WriteLine(member.DisplayInfo());
             }
         }
         
         
-        public LibraryItem Find(int itemId)
-        {
-            return items.Find(item => item.ItemId == itemId);
-            if (items == null)
-            {
-                Console.WriteLine($"Item with ID {itemId} not found.");
-            }
-        } 
+       
         
         
-        public void CheckOutItem(int itemId, Member memberId)
+        public void CheckOutItem(string itemId, Member memberId)
         {
             var item = Find(itemId);
             if (item != null && memberId != null)
@@ -55,13 +73,13 @@ namespace _1260_Project1
                 loans.Add(new Loan(memberId, item));
             }
         }
-        public void ReturnItem(int itemId)
+        public void ReturnItem(string itemId)
         {
             var item = Find(itemId);
             if (item != null && item.IsAvailable == false)
             {
                 item.Return();
-                var loan = loans.Find(l => l.ItemId.ItemId == itemId && l.ReturnDate == null);
+                var loan = loans.Find(l => l.itemId.itemId == itemId && l.ReturnDate == null);
                 if (loan != null)
                 {
                     loan.ReturnItem();
@@ -73,18 +91,21 @@ namespace _1260_Project1
         {
             foreach (var loan in loans)
             {
-                loan.DisplayInfo();
+                Console.WriteLine(loan.DisplayInfo());
             }
         }
+        
 
-        public void FinalReport()
+
+
+public void FinalReport()
         {
             Console.WriteLine("=== 1. Classes, UML, and Relationships ===" );
             Console.WriteLine("Classes:");
             Console.WriteLine(" - Library, LibraryItem, StudyRoom, Media, Book, Magazine, Member, Loan");
             Console.WriteLine();
             Console.WriteLine("Relationships:");
-            Console.WriteLine(" - Library contains LibraryItems and Members");
+            Console.WriteLine(" - Library manages LibraryItems, Members and Loans");
             Console.WriteLine(" - LibraryItem can be borrowed by Members through Loans");
             Console.WriteLine(" - Members can borrow multiple LibraryItems through Loans");
             Console.WriteLine();

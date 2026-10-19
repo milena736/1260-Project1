@@ -5,19 +5,19 @@ using System.Text;
 
 namespace _1260_Project1
 {
-    public abstract class LibraryItem 
+    public abstract class LibraryItem : ILoanable, IDisplay
     {
         // private static int _nextId = 1;
         //fix public/private and UC/LC
 
-        private int itemId;
-        public int ItemId { get; set; }
+       
+        public string itemId { get; set; }
 
 
         public bool IsAvailable { get; set; }
-        public LibraryItem( int itemId)
+        public LibraryItem( string itemId)
         {
-            this.ItemId = itemId;
+            this.itemId = itemId;
             IsAvailable = true;
             
         }

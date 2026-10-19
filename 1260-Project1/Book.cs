@@ -10,7 +10,7 @@ namespace _1260_Project1
         private int Pages;
         public int pages { get; private set; }
 
-        public Book (int ItemId, string title, string author, int year, int pages) : base(ItemId, title, author, year)
+        public Book (string itemId, string title, string author, int year, int pages) : base(itemId, title, author, year)
         {
             
             this.Pages = pages;
