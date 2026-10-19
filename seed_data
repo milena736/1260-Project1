@@ -1,0 +1,18 @@
+ //adding LibraryItems
+ LibraryItem item1 = new Book("11", "The Great Gatsby", "F. Scott Fitzgerald", 1925, 218);
+ Library.AddItem(item1);
+ LibraryItem item2 = new Magazine("21", "National Geographic", "National Geographic Society", 2023, 8);
+ Library.AddItem(item2);
+ LibraryItem item3 = new Book("12", "To Kill a Mockingbird", "Harper Lee", 1960, 281);
+ Library.AddItem(item3);
+ LibraryItem item4 = new StudyRoom("01", "Apple Room", 1);
+ Library.AddItem(item4);
+ //duplicate item test
+ LibraryItem item5 = new Book("11", "The Great Gatsby", "F. Scott Fitzgerald", 1925, 218);
+ Library.AddItem(item5);
+
+ //adding new members
+ Member member1 = new Member("1", "John Doe");
+ Library.AddMember(member1);
+ Member member2 = new Member("2", "Jane Smith");
+ Library.AddMember(member2);
