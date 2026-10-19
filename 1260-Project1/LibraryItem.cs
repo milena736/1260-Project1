@@ -8,7 +8,7 @@ namespace _1260_Project1
     public abstract class LibraryItem : ILoanable, IDisplay, IComparable<LibraryItem>, IEquatable<LibraryItem>
     {
 
-        //fix public/private and UC/LC
+        
         private string itemId;
         private string title;
         public string ItemId { get; set; }
