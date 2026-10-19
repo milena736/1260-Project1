@@ -41,7 +41,7 @@ namespace _1260_Project1
             //Library.Find() test
             //var foundItem = Library.Find("1");
             //Console.WriteLine("Found Item: '{0}'", foundItem.DisplayInfo());
-            
+
             // Group 3: 2nd Requirement, a loop of base type LibraryItem calling 
             //the abstract type method
             List<LibraryItem> loop = new List<LibraryItem>();
@@ -87,7 +87,7 @@ namespace _1260_Project1
             Console.WriteLine("Items sorted by natural order:");
             foreach (var item in itemList)
             {
-                Console.WriteLine($" {loopNumber ++} {item.DisplayInfo()}");
+                Console.WriteLine($" {loopNumber++} {item.DisplayInfo()}");
             }
             Console.WriteLine();
             // sorting by custom order using IComparer
@@ -98,14 +98,58 @@ namespace _1260_Project1
                 Console.WriteLine($" {loopNumber++} {item.DisplayInfo()}");
             }
             Console.WriteLine();
-            /*Console.WriteLine("Items sorted by Name:");
+            // items sorted by Name using GroupByKey
+            Console.WriteLine("Items sorted by Name:");
             itemList.Sort(new GroupByKey());
             foreach (var item in itemList)
             {
                 Console.WriteLine($" {loopNumber++} {item.DisplayInfo()}");
-            }*/
+            }
 
-        }
+            //Group 5 loading from seed_data.txt
+            string filePath = "seed_Data.txt";
+            List<string> data = new List<string>();
+
+            try
+            {
+                using (StreamReader sr = new StreamReader(filePath))
+                {
+                    string line;
+                    int lineNumber = 0;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        lineNumber++;
+                        try
+                        {
+                            data.Add(line);
+
+                        }
+                        catch (FormatException ex)
+                        {
+                            Console.WriteLine($"Line {lineNumber} is invalid, Reason: {ex.Message}");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error reading file: {ex.Message}");
+                        }
+                    }
+                }
+            }
+
+
+            catch (IOException ex)
+            {
+                Console.WriteLine($"Error reading file: {ex.Message}");
+            }
+            Console.WriteLine("Valid Data:");
+            foreach (var item in data)
+            {
+                Console.WriteLine(item);
+            }
+
+
+
+          }  
 
     }
 }
