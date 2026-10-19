@@ -1,0 +1,3 @@
+<ItemGroup>
+<None Update="data.txt" CopyToOutputDirectory="PreserveNewest" />
+</ItemGroup>
