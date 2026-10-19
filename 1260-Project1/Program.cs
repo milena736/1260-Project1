@@ -6,6 +6,8 @@ namespace _1260_Project1
     {
         static void Main(string[] args)
         {
+            Path.Combine(AppContext.BaseDirectory, "data.txt");
+
             var Library = new Library();
             //adding LibraryItems
             LibraryItem item1 = new Book("11", "The Great Gatsby", "F. Scott Fitzgerald", 1925, 218);
@@ -107,7 +109,7 @@ namespace _1260_Project1
             }
 
             //Group 5 loading from seed_data.txt
-            string filePath = "seed_Data.txt";
+            string filePath = "seed_data.txt";
             List<string> data = new List<string>();
 
             try
