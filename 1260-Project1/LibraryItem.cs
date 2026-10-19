@@ -7,18 +7,18 @@ namespace _1260_Project1
 {
     public abstract class LibraryItem : ILoanable, IDisplay, IComparable<LibraryItem>, IEquatable<LibraryItem>
     {
-        // private static int _nextId = 1;
+
         //fix public/private and UC/LC
-
-
-        public string itemId { get; set; }
-        public string title { get; set; }
+        private string itemId;
+        private string title;
+        public string ItemId { get; set; }
+        public string Title { get; set; }
 
         public bool IsAvailable { get; set; }
         public LibraryItem(string itemId, string title)
         {
-            this.itemId = itemId;
-            this.title = title;
+            this.ItemId = itemId;
+            this.Title = title;
             IsAvailable = true;
 
         }
@@ -28,7 +28,7 @@ namespace _1260_Project1
         {
             if (!IsAvailable)
             {
-                throw new InvalidOperationException($"'{itemId}' is not available for checkout.");
+                throw new InvalidOperationException($"'{ItemId}' is not available for checkout.");
             }
             IsAvailable = false;
 
@@ -39,7 +39,7 @@ namespace _1260_Project1
         {
             if (IsAvailable)
             {
-                throw new InvalidOperationException($"'{itemId}' is already available and cannot be returned.");
+                throw new InvalidOperationException($"'{ItemId}' is already available and cannot be returned.");
             }
             IsAvailable = true;
 
@@ -50,12 +50,12 @@ namespace _1260_Project1
         public int CompareTo(LibraryItem other)
         {
             if (other == null) return 1;
-            return string.Compare(this.itemId, other.itemId, StringComparison.OrdinalIgnoreCase);
+            return string.Compare(this.ItemId, other.ItemId, StringComparison.OrdinalIgnoreCase);
         }
         public bool Equals(LibraryItem other)
         {
             if (other == null) return false;
-            return string.Equals(this.itemId, other.itemId, StringComparison.OrdinalIgnoreCase);
+            return string.Equals(this.ItemId, other.ItemId, StringComparison.OrdinalIgnoreCase);
         }
         public override bool Equals(object obj)
         {
@@ -67,7 +67,7 @@ namespace _1260_Project1
         }
         public override int GetHashCode()
         {
-            return itemId != null ? StringComparer.OrdinalIgnoreCase.GetHashCode(itemId) : 0;
+            return ItemId != null ? StringComparer.OrdinalIgnoreCase.GetHashCode(ItemId) : 0;
 
 
 

@@ -18,7 +18,7 @@ namespace _1260_Project1
 
         public override string DisplayInfo()
         {
-            return string.Format($"Type: {Type()} Title: {title}, Author: {author}, Year: {year}, Pages: {Pages}");
+            return string.Format($"Type: {Type()} Title: {Title}, Author: {Author}, Year: {Year}, Pages: {Pages}");
         }
         public override string Type()
         {

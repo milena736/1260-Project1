@@ -12,7 +12,7 @@ namespace _1260_Project1
             {
                 throw new ArgumentException("Arguments cannot be null");
             }
-            return x.title.CompareTo(y.title);
+            return x.Title.CompareTo(y.Title);
         }
     
 

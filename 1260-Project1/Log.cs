@@ -24,16 +24,10 @@ namespace _1260_Project1
             isClosed = false;
         }
 
-        public void Write(LibraryItem r)
-        {
-            count = count + 1;
-            Console.WriteLine("{0,3} {1}", count, r);
-
-        }
 
         public void Dispose()
         {
-            if (isClosed = true)
+            if (isClosed == true)
             {
                 return;
             }
@@ -41,7 +35,7 @@ namespace _1260_Project1
             {
                 if (writer != null)
                 {
-                    Console.WriteLine(String.Format("LOG CLOSED, {0} lines written", count));
+                    writer.Close();
 
                 }
             }

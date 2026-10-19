@@ -18,7 +18,7 @@ namespace _1260_Project1
         }
         public override string DisplayInfo()
         {
-            return string.Format($"Study Room {RoomNumber}: Room Name: {title} - {(IsAvailable ? "Available" : "Not Available")}");
+            return string.Format($"Study Room {RoomNumber}: Room Name: {Title} - {(IsAvailable ? "Available" : "Not Available")}");
         }
         public override string Type()
         {

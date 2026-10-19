@@ -109,7 +109,7 @@ namespace _1260_Project1
             }
 
             //Group 5 loading from seed_data.txt
-            string filePath = "seed_data.txt";
+            string filePath = ($"C:\\Users\\milen\\OneDrive\\Documents\\1260-Project1\\1260-Project1\\seed_Data.txt");
             List<string> data = new List<string>();
 
             try

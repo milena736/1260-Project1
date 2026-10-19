@@ -12,16 +12,16 @@ namespace _1260_Project1
         public int IssueNumber { get; set; }
     
 
-    public Magazine(string itemId, string title, string author, int year, int IssueNumber)
+    public Magazine(string itemId, string title, string author, int year, int issueNumber)
             : base(itemId, title, author, year)
         {
             
-            this.IssueNumber = IssueNumber;
+            this.IssueNumber = issueNumber;
         }
 
         public override string DisplayInfo()
         {
-            return string.Format($"Type: {Type()} Title: {title}, Author: {author}, Year: {year}, IssueNumber: {IssueNumber}");
+            return string.Format($"Type: {Type()} Title: {Title}, Author: {Author}, Year: {Year}, IssueNumber: {IssueNumber}");
         }
 
         public override string Type()

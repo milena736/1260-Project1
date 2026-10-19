@@ -6,22 +6,22 @@ namespace _1260_Project1
 {
     public class Library 
     {
-        public List<LibraryItem> items;
-        public List<Member> members;
-        public List<Loan> loans;
+        public List<LibraryItem> Items;
+        public List<Member> Members;
+        public List<Loan> Loans;
 
         public Library()
         {
-            this.items = new List<LibraryItem>();
-            this.members = new List<Member>();
-            this.loans = new List<Loan>();
+            this.Items = new List<LibraryItem>();
+            this.Members = new List<Member>();
+            this.Loans = new List<Loan>();
         }
-        public LibraryItem Find(string itemId)
+        public LibraryItem Find(string ItemId)
         {
-            return items.Find(item => item.itemId == itemId);
-            if (itemId == null)
+            return Items.Find(item => item.ItemId == ItemId);
+            if (ItemId == null)
             {
-                throw new InvalidOperationException($"Item with ID {itemId} not found.");
+                throw new InvalidOperationException($"Item with ID {ItemId} not found.");
             }
         }
 
@@ -31,21 +31,21 @@ namespace _1260_Project1
             {
                 throw new ArgumentNullException(nameof(item), "Item cannot be null.");
             }
-            if (items.Find(i => i.itemId == item.itemId) != null)
+            if (Items.Find(i => i.ItemId == item.ItemId) != null)
             {
                 return false;
             }
-            items.Add(item);
+            Items.Add(item);
             return true;
         }
 
         public void AddMember(Member member)
         {
-            members.Add(member);
+            Members.Add(member);
         }
         public void DisplayItems()
         {
-            foreach (var item in items)
+            foreach (var item in Items)
             {
                 Console.WriteLine(item.DisplayInfo());
             }
@@ -54,7 +54,7 @@ namespace _1260_Project1
 
         public void DisplayMembers()
         {
-            foreach (var member in members)
+            foreach (var member in Members)
             {
                 Console.WriteLine(member.DisplayInfo());
             }
@@ -64,22 +64,22 @@ namespace _1260_Project1
        
         
         
-        public void CheckOutItem(string itemId, Member memberId)
+        public void CheckOutItem(string ItemId, Member MemberId)
         {
-            var item = Find(itemId);
-            if (item != null && memberId != null)
+            var item = Find(ItemId);
+            if (item != null && MemberId != null)
             {
                 item.CheckOut();
-                loans.Add(new Loan(memberId, item));
+                Loans.Add(new Loan(MemberId, item));
             }
         }
-        public void ReturnItem(string itemId)
+        public void ReturnItem(string ItemId)
         {
-            var item = Find(itemId);
+            var item = Find(ItemId);
             if (item != null && item.IsAvailable == false)
             {
                 item.Return();
-                var loan = loans.Find(l => l.itemId.itemId == itemId && l.ReturnDate == null);
+                var loan = Loans.Find(l => l.ItemId.ItemId == ItemId && l.ReturnDate == null);
                 if (loan != null)
                 {
                     loan.ReturnItem();
@@ -89,14 +89,14 @@ namespace _1260_Project1
         }
         public void DisplayLoans()
         {
-            foreach (var loan in loans)
+            foreach (var loan in Loans)
             {
                 Console.WriteLine(loan.DisplayInfo());
             }
         }
         public int SignedCount()
         {
-            int count = items.Count(item => item is IDisplay);
+            int count = Items.Count(item => item is IDisplay);
             return count;
         }
 

@@ -6,22 +6,22 @@ namespace _1260_Project1
 {
     public abstract class Media : LibraryItem
     {
-        
-        public string author { get; set; }
-        public int year { get; set; }
+        private string author;
+        public string Author { get; set; }
+        public int Year { get; set; }
         
 
         public Media(string itemId, string title, string author, int year) : base(itemId, title)
         {
            
-            this.author = author;
-            this.year = year;
+            this.Author = author;
+            this.Year = year;
             
 
         }
         public override string DisplayInfo()
         {
-            return string.Format($"Type: {Type()} Title: {title}, Author: {author}, Year: {year}");
+            return string.Format($"Type: {Type()} Title: {Title}, Author: {Author}, Year: {Year}");
         }
 
         public override string Type()
