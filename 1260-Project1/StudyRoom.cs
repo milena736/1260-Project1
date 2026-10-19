@@ -7,14 +7,14 @@ namespace _1260_Project1
     public class StudyRoom : LibraryItem, IDisplay
     {
         private int roomNumber;
-        private bool isAvailable;
+        private bool IsAvailable;
         public int RoomNumber { get; set; }
         
 
-        public StudyRoom(int roomNumber, string itemId, bool isAvailable) : base(itemId)
+        public StudyRoom(string itemId, int roomNumber) : base(itemId)
         {
             this.RoomNumber = roomNumber;
-            this.IsAvailable = isAvailable;
+            IsAvailable = true;
         }
         public override string DisplayInfo()
         {

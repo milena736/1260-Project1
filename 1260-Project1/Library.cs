@@ -94,11 +94,15 @@ namespace _1260_Project1
                 Console.WriteLine(loan.DisplayInfo());
             }
         }
-        
+        public int SignedCount()
+        {
+            int count = items.Count(item => item is IDisplay);
+            return count;
+        }
 
 
 
-public void FinalReport()
+        public void FinalReport()
         {
             Console.WriteLine("=== 1. Classes, UML, and Relationships ===" );
             Console.WriteLine("Classes:");
