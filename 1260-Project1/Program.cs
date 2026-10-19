@@ -10,13 +10,15 @@ namespace _1260_Project1
             //adding LibraryItems
             LibraryItem item1 = new Book("11", "The Great Gatsby", "F. Scott Fitzgerald", 1925, 218);
             Library.AddItem(item1);
-            Console.WriteLine(item1.DisplayInfo());
             LibraryItem item2 = new Magazine("21", "National Geographic", "National Geographic Society", 2023, 8);
             Library.AddItem(item2);
             LibraryItem item3 = new Book("12", "To Kill a Mockingbird", "Harper Lee", 1960, 281);
             Library.AddItem(item3);
-            LibraryItem item4 = new StudyRoom("01", 1);
+            LibraryItem item4 = new StudyRoom("01", "Apple Room", 1);
             Library.AddItem(item4);
+            //duplicate item test
+            LibraryItem item5 = new Book("11", "The Great Gatsby", "F. Scott Fitzgerald", 1925, 218);
+            Library.AddItem(item5);
 
             //adding new members
             Member member1 = new Member("1", "John Doe");
@@ -24,9 +26,9 @@ namespace _1260_Project1
             Member member2 = new Member("2", "Jane Smith");
             Library.AddMember(member2);
             //Check out and return tests
-            Library.CheckOutItem("1", member1);
-            Library.ReturnItem("1");
-            Library.CheckOutItem("2", member2);
+            Library.CheckOutItem("11", member1);
+            Library.ReturnItem("11");
+            Library.CheckOutItem("21", member2);
 
             // Display the current state of the library
             Console.WriteLine("Loans:");
@@ -37,8 +39,8 @@ namespace _1260_Project1
             Library.DisplayMembers();
 
             //Library.Find() test
-            var foundItem = Library.Find("1");
-            Console.WriteLine("Found Item: '{0}'", foundItem.DisplayInfo());
+            //var foundItem = Library.Find("1");
+            //Console.WriteLine("Found Item: '{0}'", foundItem.DisplayInfo());
             
             // Group 3: 2nd Requirement, a loop of base type LibraryItem calling 
             //the abstract type method
@@ -51,12 +53,57 @@ namespace _1260_Project1
             {
                 Console.WriteLine(String.Format(" {0,2}: {1}", loopNumber++, item.Type()));
             }
+
             //Group 3: 3rd Requirement, using 'is' to test interface implementation
             Console.WriteLine(Library.SignedCount());
 
-         
+            //Group 4: 1st Requirement, distinct and duplicate count
+            List<LibraryItem> itemCounter = new List<LibraryItem>();
+            itemCounter.Add(item1);
+            itemCounter.Add(item2);
+            itemCounter.Add(item3);
+            itemCounter.Add(item4);
+            itemCounter.Add(item5);
 
+            var hashSet = new HashSet<LibraryItem>();
+            hashSet.Add(item1);
+            hashSet.Add(item2);
+            hashSet.Add(item3);
+            hashSet.Add(item4);
+            hashSet.Add(item5);
 
+            var itemList = new List<LibraryItem>(hashSet);
+            bool duplicate = itemCounter[0].Equals(itemCounter[4]);
+            Console.WriteLine(duplicate);
+            bool distinct = itemCounter[0].GetHashCode() == itemCounter[4].GetHashCode();
+            Console.WriteLine("Equal hash codes: " + distinct);
+            int createdCount = itemCounter.Count;
+            int distinctCount = itemList.Count;
+            Console.WriteLine($"Records Created: {createdCount}");
+            Console.WriteLine($"Distinct Records: {distinctCount}");
+
+            //Group 4: 2nd Requirement, sorting by natural order
+            itemList.Sort();
+            Console.WriteLine("Items sorted by natural order:");
+            foreach (var item in itemList)
+            {
+                Console.WriteLine($" {loopNumber ++} {item.DisplayInfo()}");
+            }
+            Console.WriteLine();
+            // sorting by custom order using IComparer
+            Console.WriteLine("Items sorted by Title:");
+            itemList.Sort(new ValueSort());
+            foreach (var item in itemList)
+            {
+                Console.WriteLine($" {loopNumber++} {item.DisplayInfo()}");
+            }
+            Console.WriteLine();
+            /*Console.WriteLine("Items sorted by Name:");
+            itemList.Sort(new GroupByKey());
+            foreach (var item in itemList)
+            {
+                Console.WriteLine($" {loopNumber++} {item.DisplayInfo()}");
+            }*/
 
         }
 
