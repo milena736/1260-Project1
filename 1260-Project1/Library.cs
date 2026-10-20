@@ -59,7 +59,7 @@ namespace _1260_Project1
             if (item != null && item.IsAvailable == false)
             {
                 item.Return();
-                var loan = Loans.Find(l => l.ItemId.ItemId == ItemId && l.ReturnDate == null);
+                var loan = Loans.Find(l => l.ItemId.ItemId == ItemId);
                 if (loan != null)
                 {
                     loan.ReturnItem();
@@ -73,7 +73,7 @@ namespace _1260_Project1
             int count = Items.Count(item => item is IDisplay);
             return count;
         }
-
+        
 
 
         public void FinalReport()
@@ -93,6 +93,7 @@ namespace _1260_Project1
             Console.WriteLine("=== 2. Ingeritance and Abstraction ===");
             Console.WriteLine("1.Abstract base class is LibraryItem");
             Console.WriteLine("2.Middle abstract class is Media.");
+            
 
            
         }

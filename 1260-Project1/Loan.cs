@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _1260_Project1
 {
-    public class Loan : IDisplay
+    public class Loan : IDisplay, ILoanable
     {
         public Member Name { get; set; }
         public LibraryItem ItemId { get; set; }
@@ -12,6 +12,7 @@ namespace _1260_Project1
         public DateTime DueDate { get; set; }
         public DateTime? ReturnDate { get; set; }
 
+        public bool IsAvailable { get; set; }
         public Loan(Member name, LibraryItem itemId)
         {
             this.Name = name;
@@ -23,6 +24,7 @@ namespace _1260_Project1
         public void ReturnItem()
         {
             this.ReturnDate = DateTime.Now;
+            IsAvailable = true;
         }
         public string DisplayInfo()
         {

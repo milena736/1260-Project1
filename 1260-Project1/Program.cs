@@ -35,12 +35,42 @@ namespace _1260_Project1
             Library.CheckOutItem("11", member1);
             Library.ReturnItem("11");
             Library.CheckOutItem("21", member2);
+            Console.WriteLine();
+
+            Console.WriteLine("===== Library: =====");
+            Console.WriteLine();
+            Console.WriteLine("===== Library Items =====");
+
+            List<LibraryItem> list = Library.Items;
+            int numA = 1;
+            foreach(var item in list)
+            {
+                Console.WriteLine($" {numA++} {item.DisplayInfo()}");
+            }
+            Console.WriteLine();
+            Console.WriteLine("===== Members: =====");
+            List<Member> memberList = Library.Members;
+
+            foreach (var m in memberList)
+            {
+                Console.WriteLine(m.DisplayInfo());
+            }
+            Console.WriteLine();
+            Console.WriteLine("===== Loans: =====");
+            List<Loan> loanList = Library.Loans;
+                foreach(var l in loanList)
+                {
+                    Console.WriteLine(l.DisplayInfo());
+                }
+            Console.WriteLine();
+               
             
 
-           
+
 
             // Group 3: 2nd Requirement, a loop of base type LibraryItem calling 
             //the abstract type method
+            Console.WriteLine("=== Group 3: Loop of base type, LibraryItem calling abstact method used by derived classes: ===");
             List<LibraryItem> loop = new List<LibraryItem>();
             loop.Add(item1);
             loop.Add(item2);
@@ -52,7 +82,7 @@ namespace _1260_Project1
             }
 
             //Group 3: 3rd Requirement, using 'is' to test interface implementation
-            Console.WriteLine(Library.SignedCount());
+            Console.WriteLine("Signed count for IDisplay using is: " +Library.SignedCount());
 
             //Group 4: 1st Requirement, distinct and duplicate count
             List<LibraryItem> itemCounter = new List<LibraryItem>();
@@ -69,15 +99,18 @@ namespace _1260_Project1
             hashSet.Add(item4);
             hashSet.Add(item5);
 
+            Console.WriteLine("=== Group 4: Contracts and Collections: ===");
             var itemList = new List<LibraryItem>(hashSet);
+            //Bool to test if items are equal
             bool duplicate = itemCounter[0].Equals(itemCounter[4]);
-            Console.WriteLine(duplicate);
+            Console.WriteLine("Duplicate Items:" +duplicate);
             bool distinct = itemCounter[0].GetHashCode() == itemCounter[4].GetHashCode();
             Console.WriteLine("Equal hash codes: " + distinct);
             int createdCount = itemCounter.Count;
             int distinctCount = itemList.Count;
             Console.WriteLine($"Records Created: {createdCount}");
             Console.WriteLine($"Distinct Records: {distinctCount}");
+            Console.WriteLine();
 
             //Group 4: 2nd Requirement, sorting by natural order
             itemList.Sort();

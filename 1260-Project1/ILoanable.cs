@@ -8,8 +8,6 @@ namespace _1260_Project1
     {
         bool IsAvailable { get; }
 
-        void CheckOut();
-
-        void Return();
+       
     }
 }

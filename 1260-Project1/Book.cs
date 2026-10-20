@@ -7,15 +7,15 @@ namespace _1260_Project1
 {
     public class Book : Media
     {
-        private int Pages;
-        public int pages { get; private set; }
+        private int pages;
+        public int Pages { get; private set; }
 
         public Book (string itemId, string title, string author, int year, int pages) : base(itemId, title, author, year)
         {
             
             this.Pages = pages;
         }
-
+        
         public override string DisplayInfo()
         {
             return string.Format($"Type: {Type()} Title: {Title}, Author: {Author}, Year: {Year}, Pages: {Pages}");
