@@ -139,8 +139,10 @@ namespace _1260_Project1
                 Console.WriteLine($" {num3++} {item.DisplayInfo()}");
             }
 
-            /*Group 5 loading from seed_data.txt
+            //Group 5 loading from seed_data.txt
+
             string filePath = ($"C:\\Users\\milen\\OneDrive\\Documents\\1260-Project1\\1260-Project1\\seed_Data.txt");
+           
             List<string> data = new List<string>();
 
             try
@@ -181,7 +183,7 @@ namespace _1260_Project1
             }
 
 
-            */
+            
           }  
 
     }
