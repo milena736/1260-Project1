@@ -82,7 +82,9 @@ namespace _1260_Project1
             }
 
             //Group 3: 3rd Requirement, using 'is' to test interface implementation
-            Console.WriteLine("Signed count for IDisplay using is: " +Library.SignedCount());
+            
+            Console.WriteLine("Signed count for ILoanable, using is: " +Library.SignedCount());
+            Console.WriteLine();
 
             //Group 4: 1st Requirement, distinct and duplicate count
             List<LibraryItem> itemCounter = new List<LibraryItem>();

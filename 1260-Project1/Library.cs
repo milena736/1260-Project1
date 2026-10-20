@@ -70,7 +70,7 @@ namespace _1260_Project1
         
         public int SignedCount()
         {
-            int count = Items.Count(item => item is IDisplay);
+            int count = Items.Count(item => item is ILoanable);
             return count;
         }
         
