@@ -15,3 +15,6 @@ It is implemented by Loan and LibraryItem.
 
 3.	I would add a DVD class or a class to calculate members’ late fees. To add a DVD class, I could extend off LibraryItem.
 Adding this class would not affect the other classes or relationships. The manager class Library would be unchanged. 
+
+Link to YouTube Video:
+https://youtu.be/UYOdP3DTiL4
